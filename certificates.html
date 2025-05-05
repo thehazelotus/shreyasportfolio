@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - MN SHREYAS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .certificates-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1f25 0%, #242d3b 100%);
+            padding: 120px 24px 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificates-page::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+        }
+
+        .certificates-page .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificates-page .section-header h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .certificates-page .section-header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+
+        .cert-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cert-content h3 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .cert-issuer {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 8px;
+        }
+
+        .cert-date {
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+        }
+
+        .cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .cert-skills span {
+            background: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .cert-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cert-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .certificates-page {
+                padding: 100px 16px 40px;
+            }
+
+            .certificates-page .section-header h1 {
+                font-size: 3rem;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Certificate Card Link Styles */
+        .cert-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .cert-card-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-card-link:hover .cert-card {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .cert-card-link:hover .cert-skills span {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Remove the existing hover styles from cert-card since they're now on the link */
+        .cert-card {
+            cursor: pointer;
+        }
+
+        .cert-card:hover {
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">MN SHREYAS</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">HOME</a>
+                <a href="index.html#work" class="nav-link">WORK</a>
+                <a href="index.html#about" class="nav-link">ABOUT</a>
+                <a href="index.html#skills" class="nav-link">SKILLS</a>
+                <a href="index.html#contact" class="nav-link">CONTACT</a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-feather="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section class="certificates-page">
+        <div class="section-header">
+            <h1>My Certificates</h1>
+            <p>Professional achievements and completed courses</p>
+        </div>
+        <div class="cert-grid">
+            <a href="https://drive.google.com/file/d/1xi8dKGoWClp8mbnTWREBRxTUlLopZrP-/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Oracle Cloud Infrastructure 2024 Generative AI Certified Professional</h3>
+                        <div class="cert-issuer">Oracle</div>
+                        <div class="cert-date">📅 Aug 2024 – Aug 2026</div>
+                        <div class="cert-skills">
+                            <span>Large Language Models (LLM)</span>
+                            <span>Cloud Computing</span>
+                            <span>LLMOps</span>
+                        </div>
+                        <div style="margin-top:16px;">
+                            <span style="color:rgba(255,255,255,0.7); font-size:0.95rem;">Credential ID: OC5177416</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1IZ9-M2NJark6GfD4KVNzQEckU5yZQFnQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Intergrate with Machine Learning API </h3>
+                        <div class="cert-issuer">Google & Coursera</div>
+                        <div class="cert-date">📅 2023</div>
+                        <div class="cert-skills">
+                            <span>Data Analysis</span>
+                            <span>SQL</span>        
+                            <span>R Programming</span>
+                            <span>Tableau</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/15qA7AxQJVKqvunF2wzeuWGd0obnDBqpR/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>CISCO Cybersecurity Essentials</h3>
+                        <div class="cert-issuer">Cisco</div>
+                        <div class="cert-date">📅 2022</div>
+                        <div class="cert-skills">
+                            <span>Cybersecurity</span>
+                            <span>Cybersecurity Tools</span>
+                            <span>Cybersecurity Tools</span>
+                        
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://drive.google.com/file/d/1gyGMBp7af7j0PFxJmG24VERY2xW8U3G2/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Introduction to Cybersecurity</h3>
+                        <div class="cert-issuer">Cisco</div>
+                        <div class="cert-date">📅 2021</div>
+                        <div class="cert-skills">
+                            <span>Cybersecurity Tools</span>
+                            <span> Cyber Risk Management</span>
+                            <span>Cloud Security</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1doMMtLM6qIVeG5_SVKZ31y1KNmFb969v/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Build and Secure Networks in Google Cloud </h3>
+                        <div class="cert-issuer">Google Cloud</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/157mK03mZr2pdnU3xZw83rLEgTtJXvZ9d/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Engineer Data in Google Cloud </h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2023</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                            <span>Data Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1K7YEgY-8H7blObrUoug2cOMBuwIhdYhp/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Explore Machine Learning Models with Explainable AI</h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1v5BvpfLIgFoTBWDVAJEY8oY-cgNYfWHM/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Insights from Data with BigQuery</h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                            <span>BigQuery</span>
+                            <span>Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1xZ5Q4T1cMGFH0PYUjMh2itlm_PNjkhh-/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Perform Foundational Data, ML, and AI Tasks in Google Cloud</h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1vU2iMZdxAzrgjYVUi7K7kgA3SXWOez5A/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Deploy and Manage Cloud Environments with Google Cloud</h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1ShOqp7KDEyEDKX5DZ8xdoEcxmVFL9VDg/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Deploy to Kubernetes in Google Cloud</h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1obC-rMx6_B4tlsd9Sz7MJJnGkEie-sO6/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Getting Started: Create and Manage Cloud Resources</h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                            <span>Data Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1OJetNof71kG4RTfOSZHngz-1uKaKNERh/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Introduction to programming</h3>
+                        <div class="cert-issuer">Great Learning </div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1HavM2ySmgyGrHqNV9dUTIGmc70w-n9cA/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Perform Foundational Infrastructure Tasks in Google Cloud</h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1BGdBXYayNX-YcvF2mEM3bWr3FnGpLHRH/view?usp=sharingX" target="_blank" rel="noopener noreferrer" class="cert-card-link">
+                <div class="cert-card">
+                    <div class="cert-content">
+                        <h3>Set up and Configure a Cloud Environment in Google Cloud </h3>
+                        <div class="cert-issuer">Qwiklabs</div>
+                        <div class="cert-date">📅 2020</div>
+                        <div class="cert-skills">
+                            <span>Kubernetes</span>
+                            <span>Google Cloud Platform </span>
+                            <span>Python</span>
+                            <span>Data Engineering</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 MN SHREYAS. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i data-feather="twitter"></i></a>
+                <a href="#"><i data-feather="instagram"></i></a>
+                <a href="#"><i data-feather="linkedin"></i></a>
+                <a href="#"><i data-feather="github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html> 

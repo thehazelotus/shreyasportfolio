@@ -1,0 +1,688 @@
+:root {
+    /* Modern Color Palette */
+    --primary: #0a0a0a;      /* Deeper Navy */
+    --secondary: #1a1a1a;    /* Rich Slate */
+    --accent: #60a5fa;       /* Soft Blue */
+    --accent-2: #a78bfa;     /* Soft Purple */
+    --accent-3: #f472b6;     /* Soft Pink */
+    --background: #f8fafc;   /* Light Slate */
+    --text: #f8fafc;         /* Crisp White */
+    --text-light: #e2e8f0;   /* Soft White */
+    
+    /* Modern Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+    --gradient-glow: radial-gradient(circle at center, rgba(96, 165, 250, 0.15), transparent 70%);
+    
+    /* Modern Shadows */
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 30px rgba(96, 165, 250, 0.2);
+    --shadow-neu: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.03);
+    
+    /* Modern Transitions */
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    perspective: 2000px;
+}
+
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVfJ/YAAAACHRSTlMzMzMzMzMzM85JBgUAAAABYktHRAH/Ai3eAAAASElEQVQ4y2NgQAP8DGiA4R8aYEDXwYCuA0MHA7oODB0M6DowdDCg68DQwYCugwFdB4YOBnQdGDoY0HVg6GBA14GhgwFdBwA5qQZ9YwqF0QAAAABJRU5ErkJggg==');
+    opacity: 0.015;
+    z-index: 1;
+    pointer-events: none;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: var(--gradient-primary);
+    animation: bgRotate 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes bgRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.landing-card {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    background: rgba(20, 30, 51, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+.landing-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--gradient-accent);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.header-text {
+    font-size: 2rem;
+    font-weight: 700;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    transform: translateZ(20px);
+}
+
+.header-subtitle {
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 500;
+    opacity: 0.9;
+    transform: translateZ(10px);
+}
+
+.typing-text {
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    border-right: 2px solid var(--accent);
+    white-space: nowrap;
+    margin: 0;
+    animation: blink-caret .75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--accent) }
+}
+
+.main-content {
+    position: relative;
+    z-index: 1;
+}
+
+.photo-container {
+    max-width: 180px;
+    margin: 0 auto;
+    padding: 0.75rem;
+    transform: translateZ(30px);
+}
+
+.photo-frame {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-neu);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.photo-frame:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.profile-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.decoration-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-accent);
+    opacity: 0.3;
+}
+
+.decoration-line:first-child {
+    top: 0;
+}
+
+.decoration-line:last-child {
+    bottom: 0;
+}
+
+.decoration-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,
+        rgba(10, 15, 28, 0.95),
+        rgba(20, 30, 51, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    backdrop-filter: blur(8px);
+}
+
+.photo-frame:hover .photo-overlay {
+    opacity: 1;
+}
+
+.overlay-quote {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 1.5rem;
+    color: var(--text-light);
+}
+
+.photo-frame:hover .overlay-quote {
+    transform: translateY(0);
+}
+
+.footer {
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-quote {
+    font-size: 1rem;
+    transform: translateZ(15px);
+    margin-bottom: 1rem;
+}
+
+.quote-text {
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.quote-text::before,
+.quote-text::after {
+    content: '"';
+    color: var(--accent-2);
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.7;
+}
+
+.quote-text::before {
+    left: -1.5rem;
+}
+
+.quote-text::after {
+    right: -1.5rem;
+}
+
+.quote-text:hover {
+    color: var(--accent-2);
+    transform: translateY(-2px);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    transform: translateZ(20px);
+}
+
+.social-link {
+    color: var(--text-light);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-link:hover {
+    color: var(--accent);
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mouse move effect */
+.landing-card.moving {
+    transition: transform 0.1s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .landing-card {
+        width: 75%;
+        padding: 1.25rem;
+    }
+
+    .header-text {
+        font-size: 1.8rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    .photo-container {
+        max-width: 160px;
+    }
+
+    .overlay-quote {
+        font-size: 1.25rem;
+        padding: 1.5rem;
+    }
+
+    .quote-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-card {
+        width: 85%;
+        padding: 1rem;
+    }
+
+    .header-text {
+        font-size: 1.6rem;
+    }
+
+    .photo-container {
+        max-width: 150px;
+        padding: 0.5rem;
+    }
+
+    .overlay-quote {
+        font-size: 1.1rem;
+        padding: 1rem;
+    }
+
+    .quote-text {
+        font-size: 1rem;
+    }
+
+    .social-links {
+        gap: 1.25rem;
+    }
+}
+
+.portrait-card {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    background: rgba(20, 30, 51, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.portrait-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 1px;
+    background: var(--gradient-accent);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.portrait-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-glow);
+    opacity: 0.3;
+    z-index: -2;
+}
+
+.card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-image {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+        rgba(10, 15, 28, 0.2),
+        rgba(20, 30, 51, 0.8));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.image-glow {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-glow);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.profile-image:hover img {
+    transform: scale(1.05);
+}
+
+.profile-image:hover .image-overlay {
+    opacity: 1;
+}
+
+.profile-image:hover .image-glow {
+    opacity: 0.5;
+}
+
+.name-title {
+    text-align: center;
+}
+
+.name-title h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.title {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.typing-text {
+    color: var(--accent);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    border-right: 2px solid var(--accent);
+    white-space: nowrap;
+    animation: blink-caret .75s step-end infinite;
+}
+
+.quote-section {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+}
+
+.quote-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.social-section {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+}
+
+.social-link i {
+    width: 20px;
+    height: 20px;
+    stroke: var(--accent);
+}
+
+.card-decoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+}
+
+.decoration-line {
+    width: 100%;
+    height: 1px;
+    background: var(--gradient-accent);
+    opacity: 0.3;
+}
+
+.decoration-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--accent);
+}
+
+.card-link:hover .portrait-card {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.card-link:not(.transitioning) {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card-link.transitioning {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.card-link:hover .portrait-card {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.card-link:hover .portrait-card::before {
+    opacity: 0.5;
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.portrait-card {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-link {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-link.transitioning {
+    opacity: 0;
+    transform: scale(0.98) translateY(10px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-link {
+    animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+} 

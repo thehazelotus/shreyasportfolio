@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MN SHREYAS - Creative Developer</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="page-transition"></div>
+    <a href="index.html" class="card-link" id="mainLink">
+        <div class="portrait-card">
+            <div class="card-inner">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        <img src="Untitled design (3).png" alt="MN SHREYAS">
+                        <div class="image-overlay"></div>
+                    </div>
+                    <div class="name-title">
+                        <h1>MN SHREYAS</h1>
+                        <div class="title">
+                            <span class="typing-text">Data Engineer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-section">
+                    <p>Behind every smart decision lies clean, connected, and well-engineered data.</div>
+
+                <div class="social-section">
+                    <a href="https://github.com/yourusername" class="social-link" target="_blank" onclick="event.stopPropagation();">
+                        <i data-feather="github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" class="social-link" target="_blank" onclick="event.stopPropagation();">
+                        <i data-feather="linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    
+                    </a>
+                </div>
+
+                <div class="footer-quote">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </a>
+    <script>
+        feather.replace();
+
+        // Page transition
+        document.getElementById('mainLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            const link = this;
+            const href = link.getAttribute('href');
+            const transition = document.querySelector('.page-transition');
+            
+            // Start transition
+            link.classList.add('transitioning');
+            transition.classList.add('active');
+            
+            // Navigate after transition
+            setTimeout(() => {
+                window.location.href = href;
+            }, 600);
+        });
+
+        // Add entrance animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const card = document.querySelector('.card-link');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+                card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            }, 100);
+        });
+    </script>
+    <script src="landing.js"></script>
+</body>
+</html> 

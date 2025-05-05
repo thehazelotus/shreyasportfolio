@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MN SHREYAS - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- GSAP and ScrollTrigger for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Background elements will be inserted by JavaScript -->
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="landing.html" class="logo" id="logoLink">MN SHREYAS</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#experience" class="nav-link">EXPERIENCE</a>                
+                <a href="#work" class="nav-link">PROJECTS</a>
+                <a href="#certificates" class="nav-link">CERTIFICATES</a>
+                <a href="#awards" class="nav-link">AWARDS</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-feather="menu"></i>
+            </button>
+        </nav>
+    </header>
+
+    <section id="about" class="about-hero">
+        <div class="about-content-wrapper">
+            <div class="about-main">
+                <h1 class="about-title">About Me</h1>
+                <div class="about-description">
+                    <p class="lead-text">Creative Developer crafting digital experiences</p>
+                    <div class="about-text">
+                        <p>Data Science grad student at the University of Houston (4.0 GPA), driven by a passion for solving real-world problems with data and AI.</p>
+                        <p>With hands-on experience in machine learning, computer vision, and IoT, I've built projects like smart parking systems and real-time video analysis tools. My background spans embedded systems, cloud tools, and data visualization—backed by leadership roles and a track record of impact.</p>
+                        <p>I turn complex data into actionable insights and love building smart, scalable solutions.</p>
+                    </div>
+                    <div class="tech-stack">
+                        <h3>Tech Stack</h3>
+                        <div class="tech-carousel">
+                            <div class="carousel-container">
+                                <div class="carousel-track">
+                                    <!-- Languages & Programming -->
+                                    <div class="tech-tag">Python</div>
+                                    <div class="tech-tag">NumPy</div>
+                                    <div class="tech-tag">Pandas</div>
+                                    <div class="tech-tag">OpenCV</div>
+                                    <div class="tech-tag">Shell Scripting</div>
+                                    <div class="tech-tag">C/C++</div>
+                                    <div class="tech-tag">JavaScript</div>
+                                    <div class="tech-tag">HTML/CSS</div>
+                                    <div class="tech-tag">SQL</div>
+                                    
+                                    <!-- Data Science & ML -->
+                                    <div class="tech-tag">Scikit-learn</div>
+                                    <div class="tech-tag">TensorFlow</div>
+                                    <div class="tech-tag">Edge AI</div>
+                                    <div class="tech-tag">CNN</div>
+                                    <div class="tech-tag">Data Visualization</div>
+                                    
+                                    <!-- Web & App -->
+                                    <div class="tech-tag">PHP</div>
+                                    <div class="tech-tag">LIGHTTPD</div>
+                                    <div class="tech-tag">MySQL</div>
+                                    <div class="tech-tag">Web APIs</div>
+                                    
+                                    <!-- Cloud & Tools -->
+                                    <div class="tech-tag">Google Cloud</div>
+                                    <div class="tech-tag">Git/GitHub</div>
+                                    <div class="tech-tag">Jupyter</div>
+                                    <div class="tech-tag">VS Code</div>
+                                    
+                                    <!-- IoT & Embedded -->
+                                    <div class="tech-tag">Arduino</div>
+                                    <div class="tech-tag">Raspberry Pi</div>
+                                    <div class="tech-tag">Embedded C</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-cta">
+                    <a href="#experience" class="primary-btn pulse">View My Work</a>
+                    <a href="#contact" class="secondary-btn">Get in Touch</a>
+                </div>
+            </div>
+            <div class="about-visual">
+                <div class="profile-container">
+                    <div class="profile-frame">
+                        <img src="Untitled design (3).png" alt="Profile Photo" class="profile-image">
+                        <div class="profile-overlay">
+                            <div class="overlay-content">
+                                <p class="overlay-quote">Behind every smart decision lies clean, connected, and well-engineered data.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="section-header">
+            <h2>Education & Experience</h2>
+            <p>My professional journey</p>
+        </div>
+        <div class="experience-content">
+            <div class="experience-highlights">
+                <div class="education-card">
+                    <div class="education-logo">
+                        <img src="unilogo.png" alt="University of Houston Logo">
+                    </div>
+                    <div class="education-info">
+                        <h3 class="education-name">University of Houston, Texas, USA
+</h3>                   <P class="CGPA-UNI">CGPA-3.96/4.0</P>
+                        <p class="education-degree"> Master of Science in Data Science</p>
+                        <p class="education-year">2023 - Present</p>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <div class="education-logo">
+                        <img src="VTU-Logo-250x250-1.png" alt="PES University Logo">
+                    </div>
+                    <div class="education-info">
+                        <h3 class="education-name">Atria Institute of Technology</h3>
+                        <p class="CGPA-UNI">CGPA-8.5/10</p>
+                        <p class="education-degree">Bachelor of Technology in Computer Science</p>
+                        <p class="education-year">2019 - 2023</p>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jan 2024 – Jan 2025</div>
+                        <h3>Research Assistant (Part-time)</h3>
+                        <p class="timeline-company">University of Houston – Houston, Texas, United States</p>
+                        <p class="timeline-description">Worked as a Research Assistant at the University of Houston, focusing on data preprocessing and exploration of large datasets by handling missing values, correcting skewed distributions, and addressing class imbalances, which improved model performance by 5%. </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sept 2023 - Present</div>
+                        <h3>International Student Mentor</h3>
+                        <p class="timeline-company">AdmitKard</p>
+                        <p class="timeline-description">Guiding aspiring international students with university selection, application strategy, and decision-making. Supporting students through the transition journey and helping them reach top global institutions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2022 - May 2023</div>
+                        <h3>Junior Data Analyst</h3>
+                        <p class="timeline-company">Konigtronics (OPC) Pvt Ltd</p>
+                        <p class="timeline-description">Performed data acquisition from open-source servers, followed by preprocessing and visualization for decision-making. Collaborated with cross-functional teams to identify process improvements and helped define system governance policies.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sept 2022 - Oct 2022</div>
+                        <h3>Embedded Systems Intern</h3>
+                        <p class="timeline-company">Bharat Electronics Limited</p>
+                        <p class="timeline-description">Developed backend code for satellite component monitoring using PHP, Shell Script, and LIGHTTPD server. Gained hands-on experience with embedded systems and product development in a real-world R&D environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <div class="section-header">
+            <h2>Selected Projects</h2>
+            <p>A showcase of my recent work and experiments</p>
+        </div>
+        
+        <!-- 3D Card Stack Container -->
+        <div class="card-stack-container">
+            <div class="projects-grid">
+                <article class="project-card" data-depth="0.1">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="iot.png" alt="Smart Parking Project">
+                            <h3>Smart Parking for Urban Cities</h3>
+                            <p>IoT & Edge AI</p>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-details">
+                                <h3> Smart Parking for Urban Cities</h3>
+                                <p>IoT & Edge AI</p>
+                                <p class="project-description">A smart parking system using computer vision and IoT to optimize parking in urban areas.</p>
+                                <a href="https://www.canva.com/design/DAFZDIfdtCw/kV2__hzziwnMgU9MOlsWbg/view" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-depth="0.2">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="bgrem.png" alt="ML Analytics Dashboard">
+                            <h3>Background Subtraction System for Real-Time Video Streams</h3>
+                            <p>Python, OpenCV, Computer Vision, Digital Image Processing</p>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-details">
+                                <h3>Background Subtraction System for Real-Time Video Streams</h3>
+                                <p>Python, OpenCV, Computer Vision, Digital Image Processing</p>
+                                <p class="project-description">Real-time object detection by separating foreground from static backgrounds.</p>
+                                <a href="https://github.com/ShreyasMysoreNarayana/Real-Time-Backgroud-Subtraction-of-Video-" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-depth="0.3">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="linked.png" alt="Computer Vision System">
+                            <h3>linkedin Easy Apply Automation</h3>
+                            <p>Python, Selenium, Flask</p>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-details">
+                                <h3>linkedin Easy Apply Automation</h3>
+                                <p>Python, Selenium, Flask</p>
+                                <p class="project-description">Automated LinkedIn tool using Python and Selenium to streamline connection requests, messaging, and data extraction.</p>
+                                <a href="https://github.com/ShreyasMysoreNarayana/Linked_Easy_Apply_Automation" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-depth="0.4">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="sysnet.jpg" alt="Cloud Platform">
+                            <h3>SYSNET_ANALYSIS</h3>
+                            <p>Python, Pandas, NumPy, Scikit-learn, LDA, Matplotlib/Seaborn</p>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-details">
+                                <h3>SYSNET_ANALYSIS</h3>
+                                <p>Python, Pandas, NumPy, Scikit-learn, LDA, Matplotlib/Seaborn</p>
+                                <p class="project-description">Performed feature selection on Synset data using LASSO, LDA, and Genetic Algorithms to optimize preprocessing and enhance model performance.</p>
+                                <a href="https://github.com/ShreyasMysoreNarayana/SYNSET_ANALYSIS" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-depth="0.5">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="ChatGPT Image Apr 3, 2025, 10_48_19 AM.png" alt="Data Visualization">
+                            <h3>Movie Recommendation System</h3>
+                            <p>R, Python, recommenderlab, scikit-learn, MovieLens 20M Dataset, Association Rule Mining</p>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-details">
+                                <h3>Movie Recommendation System</h3>
+                                <p>R, Python, recommenderlab, scikit-learn, MovieLens 20M Dataset, Association Rule Mining</p>
+                                <p class="project-description">Personalized movie recommendation engine using collaborative filtering, content-based filtering, and hybrid models on the MovieLens dataset.</p>
+                                <a href="https://github.com/ShreyasMysoreNarayana/DM-PROJECT-Group-3" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-depth="0.6">
+                    <div class="card-content">
+                        <div class="card-front">
+                            <img src="chatbot-3d-illustration-concept-web-app-using-nlp-engage-conversation_1995-873.avif" alt="IoT Project">
+                            <h3>NLP-CHAT-BOT</h3>
+                            <p>Google Dialogflow, FastAPI, MySQL, ngrok, Uvicorn, Firebase Hosting</p>
+                        </div>
+                        <div class="card-back">
+                            <div class="project-details">
+                                <h3>NLP-CHAT-BOT</h3>
+                                <p>Google Dialogflow, FastAPI, MySQL, ngrok, Uvicorn, Firebase Hosting</p>
+                                <p class="project-description">An AI-powered chatbot that integrates Google Dialogflow with a FastAPI backend, MySQL database, and a web interface for seamless user interaction and natural language processing.</p>
+                                <a href="https://github.com/ShreyasMysoreNarayana/NLP-CHAT-BOT" target="_blank" class="project-link">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="certificates-preview">
+        <div class="section-header">
+            <h2>Certificates</h2>
+            <p>My professional achievements and completed courses</p>
+        </div>
+        <div class="certificates-cta">
+            <a href="certificates.html" class="primary-btn float">View All Certificates</a>
+        </div>
+    </section>
+
+    <section id="publications" class="publications">
+        <div class="section-header">
+            <h2>Publications</h2>
+            <p>My research papers and scholarly articles</p>
+        </div>
+        <div class="publications-grid">
+            <article class="publication-card">
+                <div class="publication-content">
+                    <h3 class="publication-title">Cloud Computing on Earthquake Dataset Using CNN Algorithm: Consequent Disaster Analysis</h3>
+                    <div class="publication-authors">Shreyas Mysore Narayana, et al.</div>
+                    <div class="publication-venue">International Journal of Advanced Research in Computer and Communication Engineering, Research Gate, Google Scholar · Jun 6, 2023</div>
+                    <div class="publication-description">For land use planning, management/assessment, geodisaster risk mitigation, as well as post-disaster analysis using cloud-based CNN models.</div>
+                    <a href="https://www.researchgate.net/publication/371172813_Cloud_Computing_on_Earthquake_Dataset_Using_CNN_Algorithm_Consequent_Disaster_Analysis" class="publication-link" target="_blank">Show publication</a>
+                </div>
+            </article>
+            <article class="publication-card">
+                <div class="publication-content">
+                    <h3 class="publication-title">Smart Parking for Urban Cities Using IoT and Edge AI</h3>
+                    <div class="publication-authors">Shreyas Mysore Narayana, et al.</div>
+                    <div class="publication-venue">International Journal of Advanced Research in Computer and Communication Engineering, Research Gate, Google Scholar · Apr 4, 2023</div>
+                    <div class="publication-description">A study on smart parking solutions leveraging IoT and Edge AI to optimize urban parking and improve city mobility.</div>
+                    <a href="https://www.researchgate.net/publication/370130779_Smart_Parking_for_Urban_Cities_Using_IoT_and_Edge_AI" class="publication-link" target="_blank">Show publication</a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="awards" class="awards">
+        <div class="section-header">
+            <h2>Honors & Awards</h2>
+            <p>Recognition of achievements and leadership</p>
+        </div>
+        
+        <div class="awards-grid">
+            <article class="award-card">
+                <div class="award-image">
+                    <img src="WhatsApp Image 2025-04-14 at 22.06.33_5456c4fe.jpg" alt="Best Outgoing Student Award">
+                    <div class="award-overlay"></div>
+                </div>
+                <div class="award-content">
+                    <div class="award-header">
+                        <span class="award-date">Dec 2023</span>
+                        <h3>Best Outgoing Student</h3>
+                        <p class="award-issuer">Atria Institute of Technology, BANGALORE</p>
+                    </div>
+                    <div class="award-body">
+                        <p class="award-description">Received recognition as the 'Best Outgoing Student of the Department of Computer Science & Engineering' for the 2019-2023 Batch. This esteemed award represents success in extracurricular and academic pursuits and reflects a path of personal development, learning, leadership, and accomplishment.</p>
+                        <div class="award-badges">
+                            <span class="badge">Academic Excellence</span>
+                            <span class="badge">Leadership</span>
+                            <span class="badge">2019-2023 Batch</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="award-card">
+                <div class="award-image">
+                    <img src="pres.jpeg" alt="Best President Secretary Duo">
+                    <div class="award-overlay"></div>
+                </div>
+                <div class="award-content">
+                    <div class="award-header">
+                        <span class="award-date">Jun 2023</span>
+                        <h3>Best President – Secretary Duo</h3>
+                        <p class="award-issuer">Rotaract District 3190</p>
+                    </div>
+                    <div class="award-body">
+                        <p class="award-description">During my President term at the Rotaract Club of Atria Institute of Technology, received the Best President – Secretary Duo award and was nominated for the Best President Award for the year 2022-23.</p>
+                        <div class="award-badges">
+                            <span class="badge">Leadership</span>
+                            <span class="badge">Team Management</span>
+                            <span class="badge">2022-23</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="award-card">
+                <div class="award-image">
+                    <img src="ost.jpeg" alt="Outstanding Institute Club">
+                    <div class="award-overlay"></div>
+                </div>
+                <div class="award-content">
+                    <div class="award-header">
+                        <span class="award-date">Jun 2023</span>
+                        <h3>Outstanding Institute based Club</h3>
+                        <p class="award-issuer">Rotaract District 3190</p>
+                    </div>
+                    <div class="award-body">
+                        <p class="award-description">Led the Rotaract Club to receive Outstanding Institute based Club recognition for 2022-23. Overall, the club received a total of 19 Awards and Recognitions under my leadership.</p>
+                        <div class="award-badges">
+                            <span class="badge">Club Leadership</span>
+                            <span class="badge">Achievement</span>
+                            <span class="badge">19 Awards</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="award-card">
+                <div class="award-image">
+                    <img src="ieee.jpeg" alt="IEEE Vice Chair">
+                    <div class="award-overlay"></div>
+                </div>
+                <div class="award-content">
+                    <div class="award-header">
+                        <span class="award-date">Aug 2022</span>
+                        <h3>IEEE VICE CHAIR</h3>
+                        <p class="award-issuer">IEE STB Atria Institute of Technology, BANGALORE</p>
+                    </div>
+                    <div class="award-body">
+                        <p class="award-description">Received recognition after successfully serving as the Vice Chair of the IEEE Student Chapter for the term 2021-22.</p>
+                        <div class="award-badges">
+                            <span class="badge">IEEE Leadership</span>
+                            <span class="badge">Student Chapter</span>
+                            <span class="badge">2021-22</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Let's Connect</h2>
+            <p>Get in touch for collaborations</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i data-feather="mail"></i>
+                    <a href="mailto:contact@example.com">mnshreyas615@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i data-feather="github"></i>
+                    <a href="https://github.com/ShreyasMysoreNarayana" target="_blank">ShreyasMysoreNarayana</a>
+                </div>
+                <div class="contact-item">
+                    <i data-feather="linkedin"></i>
+                    <a href="https://www.linkedin.com/in/shreyas-m-n- " target="_blank">Shreyas MN</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 MN SHREYAS. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/shreyas_mn_shetty?igsh=dG93bW0zYXB5Z3pq" target="_blank"><i data-feather="instagram"></i></a>
+                <a href="https://www.linkedin.com/in/shreyas-m-n-/" target="_blank"><i data-feather="linkedin"></i></a>
+                <a href="https://github.com/ShreyasMysoreNarayana" target="_blank"><i data-feather="github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        // Add page transition for logo click
+        document.getElementById('logoLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            const transition = document.querySelector('.page-transition');
+            transition.classList.add('active');
+            
+            setTimeout(() => {
+                window.location.href = 'landing.html';
+            }, 600);
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
